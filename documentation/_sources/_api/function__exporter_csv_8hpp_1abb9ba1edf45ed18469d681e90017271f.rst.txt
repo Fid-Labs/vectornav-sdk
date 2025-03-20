@@ -1,0 +1,14 @@
+.. _exhale_function__exporter_csv_8hpp_1abb9ba1edf45ed18469d681e90017271f:
+
+Function VN::getMeasurementName
+===============================
+
+- Defined in :ref:`file_plugins_DataExport_include_ExporterCsv.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: VN::getMeasurementName(const size_t, const size_t)
+   :project: VectorNav SDK

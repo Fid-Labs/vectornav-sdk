@@ -1,0 +1,22 @@
+
+.. _program_listing_file_plugins_Math_Tests_MathTest.cpp:
+
+Program Listing for File MathTest.cpp
+=====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_plugins_Math_Tests_MathTest.cpp>` (``plugins\Math\Tests\MathTest.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "gtest/gtest.h"
+   #include "Conversions.test"
+   #include "MatrixMath.test"
+   #include "LinearAlgebra.test"
+   
+   GTEST_API_ int main(int argc, char* argv[]) {
+       printf("Running main() from %s\n", __FILE__);
+       ::testing::InitGoogleTest(&argc, argv);
+       return RUN_ALL_TESTS();
+   }

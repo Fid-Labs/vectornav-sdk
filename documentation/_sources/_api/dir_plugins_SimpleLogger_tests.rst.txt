@@ -1,0 +1,21 @@
+.. _dir_plugins_SimpleLogger_tests:
+
+
+Directory tests
+===============
+
+
+|exhale_lsh| :ref:`Parent directory <dir_plugins_SimpleLogger>` (``plugins\SimpleLogger``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``plugins\SimpleLogger\tests``
+
+
+Files
+-----
+
+- :ref:`file_plugins_SimpleLogger_tests_DataLoggerTest.cpp`
+
+

@@ -1,0 +1,79 @@
+
+.. _program_listing_file_include_Implementation_PacketSynchronizer.hpp:
+
+Program Listing for File PacketSynchronizer.hpp
+===============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_Implementation_PacketSynchronizer.hpp>` (``include\Implementation\PacketSynchronizer.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef IMPLEMENTATION_PACKETSYNCHRONIZER_HPP
+   #define IMPLEMENTATION_PACKETSYNCHRONIZER_HPP
+   
+   #include <cstdint>
+   #include <memory>
+   #include <algorithm>
+   #include "TemplateLibrary/Vector.hpp"
+   #include "TemplateLibrary/ByteBuffer.hpp"
+   #include "Implementation/PacketDispatcher.hpp"
+   #include "Config.hpp"
+   
+   namespace VN
+   {
+   
+   constexpr uint8_t PACKET_PARSER_CAPACITY = Config::PacketFinders::maxNumPacketFinders;
+   
+   class PacketSynchronizer
+   {
+   public:
+       PacketSynchronizer(ByteBuffer& byteBuffer, size_t nominalSerialPush = Config::Serial::numBytesToReadPerGetData)
+           : _primaryByteBuffer(byteBuffer), _nominalSerialPush(nominalSerialPush)
+       {
+       }
+       bool addDispatcher(PacketDispatcher* packetParser) noexcept;
+   
+       bool dispatchNextPacket() noexcept;
+   
+       void registerSkippedByteBuffer(ByteBuffer* const skippedByteBuffer) noexcept { _pSkippedByteBuffer = skippedByteBuffer; };
+       void deregisterSkippedByteBuffer() noexcept { _pSkippedByteBuffer = nullptr; };
+   
+       void registerReceivedByteBuffer(ByteBuffer* const receivedByteBuffer) noexcept { _pReceivedByteBuffer = receivedByteBuffer; }
+       void deregisterReceivedByteBuffer() noexcept { _pReceivedByteBuffer = nullptr; }
+   
+       using SyncBytes = Vector<uint8_t, SYNC_BYTE_CAPACITY>;
+   
+       size_t getValidPacketCount(const SyncBytes& syncByte) const noexcept;
+       size_t getInvalidPacketCount(const SyncBytes& syncByte) const noexcept;
+   
+   private:
+       struct InternalItem
+       {
+           PacketDispatcher* packetDispatcher = nullptr;
+           SyncBytes syncBytes{};
+           PacketDispatcher::FindPacketRetVal latestRetVal{};
+           mutable size_t numValidPackets = 0;
+           mutable size_t numInvalidPackets = 0;
+       };
+   
+       Vector<InternalItem, PACKET_PARSER_CAPACITY> _dispatchers{};
+   
+       ByteBuffer* _pSkippedByteBuffer = nullptr;
+       void _copyToSkippedByteBufferIfEnabled(const size_t numBytesToCopy) const noexcept;
+   
+       ByteBuffer* _pReceivedByteBuffer = nullptr;
+       void _copyToReceivedByteBufferIfEnabled(const size_t numBytesToCopy) const noexcept;
+   
+       mutable std::array<uint8_t, Config::PacketFinders::skippedReceivedByteBufferMaxPutLength> _copySkippedReceivedLinearBuffer{};
+   
+       ByteBuffer& _primaryByteBuffer;
+       uint64_t _prevByteBufferSize = 0;
+       size_t _prevBytesRequested = 0;
+       PacketDispatcher::FindPacketRetVal::Validity _prevValidity = PacketDispatcher::FindPacketRetVal::Validity::Invalid;
+       const size_t _nominalSerialPush;
+   };
+   }  // namespace VN
+   
+   #endif  // IMPLEMENTATION_PACKETSYNCHRONIZER_HPP

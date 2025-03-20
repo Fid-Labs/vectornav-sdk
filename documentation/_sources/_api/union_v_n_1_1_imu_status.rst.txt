@@ -1,0 +1,14 @@
+.. _exhale_union_union_v_n_1_1_imu_status:
+
+Union ImuStatus
+===============
+
+- Defined in :ref:`file_include_Implementation_MeasurementDatatypes.hpp`
+
+
+Union Documentation
+-------------------
+
+
+.. doxygenunion:: VN::ImuStatus
+   :project: VectorNav SDK

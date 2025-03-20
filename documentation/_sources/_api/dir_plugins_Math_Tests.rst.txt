@@ -1,0 +1,21 @@
+.. _dir_plugins_Math_Tests:
+
+
+Directory Tests
+===============
+
+
+|exhale_lsh| :ref:`Parent directory <dir_plugins_Math>` (``plugins\Math``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``plugins\Math\Tests``
+
+
+Files
+-----
+
+- :ref:`file_plugins_Math_Tests_MathTest.cpp`
+
+

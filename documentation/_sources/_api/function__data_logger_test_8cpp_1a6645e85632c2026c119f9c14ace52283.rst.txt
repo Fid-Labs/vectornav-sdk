@@ -1,0 +1,14 @@
+.. _exhale_function__data_logger_test_8cpp_1a6645e85632c2026c119f9c14ace52283:
+
+Function main(int, char \*)
+===========================
+
+- Defined in :ref:`file_plugins_SimpleLogger_tests_DataLoggerTest.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: main(int, char *)
+   :project: VectorNav SDK

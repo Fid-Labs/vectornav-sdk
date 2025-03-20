@@ -1,0 +1,87 @@
+
+.. _program_listing_file_plugins_DataExport_include_ExporterAscii.hpp:
+
+Program Listing for File ExporterAscii.hpp
+==========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_plugins_DataExport_include_ExporterAscii.hpp>` (``plugins\DataExport\include\ExporterAscii.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef FILES_EXPORT_ASCII_HEADER_HPP
+   #define FILES_EXPORT_ASCII_HEADER_HPP
+   
+   #include <vector>
+   #include <memory>
+   
+   #include "Exporter.hpp"
+   #include "HAL/File.hpp"
+   #include "Implementation/Packet.hpp"
+   #include "Interface/Command.hpp"
+   
+   namespace VN
+   {
+   
+   struct AsciiInfo
+   {
+       const AsciiHeader header;
+       OutputFile file;
+   };
+   
+   class ExporterAscii : public Exporter
+   {
+   public:
+       ExporterAscii(const Filesystem::FilePath& outputDir) : Exporter(2048), _filePath(outputDir)
+       {
+           if (!_filePath.empty() && _filePath.to_string().back() != std::filesystem::path::preferred_separator)
+           {
+               _filePath = _filePath + std::filesystem::path::preferred_separator;
+           }
+       }
+   
+       ~ExporterAscii() {}
+   
+       void addPacketToProcess([[maybe_unused]] const std::shared_ptr<Packet> ptr) override
+       {
+           // _queue.push_back(ptr);
+       }
+   
+       void exportToFile() override
+       {
+           while (!_queue.isEmpty())
+           {
+               const auto p = _queue.get();
+               if (!p || (p->details.syncByte != PacketDetails::SyncByte::Ascii)) { return; }
+   
+               OutputFile& ascii = getFileHandle(p->details.asciiMetadata.header);
+   
+               ascii.write(reinterpret_cast<const char*>(p->buffer), p->details.asciiMetadata.length);
+           }
+       }
+   
+   private:
+       Filesystem::FilePath _filePath;
+   
+       std::vector<AsciiInfo> _asciiInfo;
+   
+       OutputFile& getFileHandle(const AsciiHeader& header)
+       {
+           for (auto& tmp : _asciiInfo)
+           {
+               if (tmp.header == header) { return tmp.file; }
+           }
+   
+           // if we don't find the header we need to init a new text file
+           AsciiMessage fileName = _filePath + header + ".txt";
+   
+           _asciiInfo.emplace_back(AsciiInfo{header, OutputFile(fileName)});
+   
+           return _asciiInfo.back().file;
+       }
+   };
+   
+   }  // namespace VN
+   
+   #endif  // FILES_EXPORT_ASCII_HEADER_HPP

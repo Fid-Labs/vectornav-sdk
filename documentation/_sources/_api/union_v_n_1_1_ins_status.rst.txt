@@ -1,0 +1,14 @@
+.. _exhale_union_union_v_n_1_1_ins_status:
+
+Union InsStatus
+===============
+
+- Defined in :ref:`file_include_Implementation_MeasurementDatatypes.hpp`
+
+
+Union Documentation
+-------------------
+
+
+.. doxygenunion:: VN::InsStatus
+   :project: VectorNav SDK

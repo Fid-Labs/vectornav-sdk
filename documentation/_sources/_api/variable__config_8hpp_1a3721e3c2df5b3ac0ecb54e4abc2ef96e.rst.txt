@@ -1,0 +1,14 @@
+.. _exhale_variable__config_8hpp_1a3721e3c2df5b3ac0ecb54e4abc2ef96e:
+
+Variable VN::Config::PacketFinders::satelliteMaxCount
+=====================================================
+
+- Defined in :ref:`file_include_Config.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: VN::Config::PacketFinders::satelliteMaxCount
+   :project: VectorNav SDK

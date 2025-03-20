@@ -1,0 +1,14 @@
+.. _exhale_variable__exporter_8hpp_1ad3033713fd3a332170e1132291b8519e:
+
+Variable VN::dataTypes
+======================
+
+- Defined in :ref:`file_plugins_DataExport_include_Exporter.hpp`
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: VN::dataTypes
+   :project: VectorNav SDK

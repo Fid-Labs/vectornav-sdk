@@ -1,0 +1,106 @@
+
+.. _program_listing_file_include_TemplateLibrary_Matrix.hpp:
+
+Program Listing for File Matrix.hpp
+===================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_TemplateLibrary_Matrix.hpp>` (``include\TemplateLibrary\Matrix.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #ifndef TEMPLATELIBRARY_MATRIX_HPP
+   #define TEMPLATELIBRARY_MATRIX_HPP
+   
+   #include <algorithm>
+   #include <cassert>
+   #include <cstddef>
+   #include <initializer_list>
+   #include <cmath>
+   #include <array>
+   #include <limits>
+   
+   #include "Debug.hpp"
+   
+   namespace VN
+   {
+   
+   template <size_t m, size_t n, typename T>
+   struct Matrix
+   {
+       Matrix(T val = 0) { std::fill(_data.begin(), _data.end(), val); }
+   
+       Matrix(std::initializer_list<T> init)
+       {
+           VN_ASSERT(m * n == init.size());
+           std::copy(init.begin(), init.end(), _data.begin());
+       }
+   
+       Matrix(const std::array<T, m * n>& init) { _data = init; }
+   
+       static Matrix identity()
+       {
+           static_assert(m == n);
+           Matrix<m, m, T> nm;
+           for (size_t i = 0; i < m; i++) { nm(i, i) = 1; };
+           return nm;
+       }
+   
+       // Compound Assignment Operator Overloads /////////////////////////////////////////////////////
+       const T& operator()(size_t row, size_t col) const
+       {
+           VN_ASSERT(row < m && col < n);
+           return _data[col + row * m];
+       }
+   
+       T& operator()(size_t row, size_t col)
+       {
+           VN_ASSERT(row < m && col < n);
+           return _data[col + row * m];
+       }
+   
+       const T& operator()(size_t row) const
+       {
+           VN_ASSERT(row < m * n);
+           return _data[row];
+       }
+   
+       T& operator[](size_t idx) { return _data[idx]; }
+   
+       const T& operator[](size_t idx) const { return _data[idx]; }
+   
+       constexpr size_t rows() const { return m; }
+   
+       constexpr size_t cols() const { return n; }
+   
+   private:
+       std::array<T, m * n> _data = {0};
+   };
+   
+   using Mat2i = Matrix<2, 2, int>;
+   
+   using Mat3i = Matrix<3, 3, int>;
+   
+   using Mat2f = Matrix<2, 2, float>;
+   
+   using Mat3f = Matrix<3, 3, float>;
+   
+   using Mat4f = Matrix<4, 4, float>;
+   
+   using Mat2d = Matrix<2, 2, double>;
+   
+   using Mat3d = Matrix<3, 3, double>;
+   
+   using Mat4d = Matrix<4, 4, double>;
+   
+   using Vec2f = Matrix<2, 1, float>;
+   
+   using Vec3f = Matrix<3, 1, float>;
+   
+   using Vec2d = Matrix<2, 1, double>;
+   
+   using Vec3d = Matrix<3, 1, double>;
+   }  // namespace VN
+   
+   #endif  // TEMPLATELIBRARY_MATRIX_HPP

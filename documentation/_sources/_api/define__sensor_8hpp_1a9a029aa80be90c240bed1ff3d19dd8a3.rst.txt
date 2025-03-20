@@ -1,0 +1,14 @@
+.. _exhale_define__sensor_8hpp_1a9a029aa80be90c240bed1ff3d19dd8a3:
+
+Define CONST_IF_THREADED
+========================
+
+- Defined in :ref:`file_include_Interface_Sensor.hpp`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: CONST_IF_THREADED
+   :project: VectorNav SDK

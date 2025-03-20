@@ -1,0 +1,20 @@
+
+.. _program_listing_file_plugins_SimpleLogger_tests_DataLoggerTest.cpp:
+
+Program Listing for File DataLoggerTest.cpp
+===========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_plugins_SimpleLogger_tests_DataLoggerTest.cpp>` (``plugins\SimpleLogger\tests\DataLoggerTest.cpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #include "gtest/gtest.h"
+   #include "DataLogger.test"
+   
+   GTEST_API_ int main(int argc, char* argv[]) {
+       printf("Running main() from %s\n", __FILE__);
+       ::testing::InitGoogleTest(&argc, argv);
+       return RUN_ALL_TESTS();
+   }

@@ -1,0 +1,38 @@
+
+.. _namespace_VN__LinAlg:
+
+Namespace VN::LinAlg
+====================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function__linear_algebra_8hpp_1a64a9a26be8c506733340ede556e062a6`
+
+- :ref:`exhale_function__linear_algebra_8hpp_1a06e09a1971833039cb7866e4a601da5b`
+
+- :ref:`exhale_function__linear_algebra_8hpp_1aec93ea462bf7c27e4a244dd10a1b3219`
+
+- :ref:`exhale_function__linear_algebra_8hpp_1a3837b6ec5adb154d0e4cb2dca12ac9f8`
+
+- :ref:`exhale_function__linear_algebra_8hpp_1a9e18ea86ba4fa3e824ba5f6eec68280b`
+
+- :ref:`exhale_function__linear_algebra_8hpp_1ac15ef471c8c094825df9bd1065a13f30`
+
+- :ref:`exhale_function__linear_algebra_8hpp_1a2c3160849c3c603bcbeb9eaf3b3639ae`
+
+- :ref:`exhale_function__linear_algebra_8hpp_1a444bc7d5f0ceb6c2d4bb12fc55ac694a`
+
+- :ref:`exhale_function__linear_algebra_8hpp_1a910cd5a6e8b00a72a71c23f8b9b240c5`
+
+- :ref:`exhale_function__linear_algebra_8hpp_1a93a6f49b86da01e833a41b60a818f59d`

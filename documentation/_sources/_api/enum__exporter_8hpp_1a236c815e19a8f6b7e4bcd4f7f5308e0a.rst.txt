@@ -1,0 +1,14 @@
+.. _exhale_enum__exporter_8hpp_1a236c815e19a8f6b7e4bcd4f7f5308e0a:
+
+Enum Type
+=========
+
+- Defined in :ref:`file_plugins_DataExport_include_Exporter.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: VN::Type
+   :project: VectorNav SDK

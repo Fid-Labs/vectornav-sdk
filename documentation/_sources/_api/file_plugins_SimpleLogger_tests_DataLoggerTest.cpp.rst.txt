@@ -1,0 +1,47 @@
+
+.. _file_plugins_SimpleLogger_tests_DataLoggerTest.cpp:
+
+File DataLoggerTest.cpp
+=======================
+
+|exhale_lsh| :ref:`Parent directory <dir_plugins_SimpleLogger_tests>` (``plugins\SimpleLogger\tests``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``plugins\SimpleLogger\tests\DataLoggerTest.cpp``)
+--------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_plugins_SimpleLogger_tests_DataLoggerTest.cpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``DataLogger.test``
+
+- ``gtest/gtest.h``
+
+
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function__data_logger_test_8cpp_1a6645e85632c2026c119f9c14ace52283`
+

@@ -1,0 +1,14 @@
+.. _exhale_union_union_v_n_1_1_time_status:
+
+Union TimeStatus
+================
+
+- Defined in :ref:`file_include_Implementation_MeasurementDatatypes.hpp`
+
+
+Union Documentation
+-------------------
+
+
+.. doxygenunion:: VN::TimeStatus
+   :project: VectorNav SDK
